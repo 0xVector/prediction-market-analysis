@@ -1,0 +1,3 @@
+curl -H "Accept: text/csv" \
+  "https://data.brier.fyi/market_scores_details?score_type=eq.brier-before-close-days-7&resolution=in.(0,1)&order=open_datetime.asc&select=market_id,market_title,market_url,platform:platform_slug,category:category_slug,question_id,open_datetime,close_datetime,duration_days,traders_count,volume_usd,question_invert,resolution,score,grade" \
+  -o ../data/markets_brier7d.csv

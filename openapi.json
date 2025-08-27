@@ -1,0 +1,3600 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "title": "standard public schema",
+    "version": "12.2.8"
+  },
+  "host": "0.0.0.0:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": [
+    "application/json",
+    "application/vnd.pgrst.object+json;nulls=stripped",
+    "application/vnd.pgrst.object+json",
+    "text/csv"
+  ],
+  "produces": [
+    "application/json",
+    "application/vnd.pgrst.object+json;nulls=stripped",
+    "application/vnd.pgrst.object+json",
+    "text/csv"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": ["application/openapi+json", "application/json"],
+        "responses": { "200": { "description": "OK" } },
+        "summary": "OpenAPI description (this document)",
+        "tags": ["Introspection"]
+      }
+    },
+    "/newsletter_signups": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.newsletter_signups.email" },
+          { "$ref": "#/parameters/rowFilter.newsletter_signups.date" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/newsletter_signups" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["newsletter_signups"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.newsletter_signups" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["newsletter_signups"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.newsletter_signups.email" },
+          { "$ref": "#/parameters/rowFilter.newsletter_signups.date" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["newsletter_signups"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.newsletter_signups.email" },
+          { "$ref": "#/parameters/rowFilter.newsletter_signups.date" },
+          { "$ref": "#/parameters/body.newsletter_signups" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["newsletter_signups"]
+      }
+    },
+    "/platform_category_scores": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.platform_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.category_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.score_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.num_markets"
+          },
+          { "$ref": "#/parameters/rowFilter.platform_category_scores.score" },
+          { "$ref": "#/parameters/rowFilter.platform_category_scores.grade" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/platform_category_scores" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["platform_category_scores"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.platform_category_scores" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["platform_category_scores"]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.platform_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.category_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.score_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.num_markets"
+          },
+          { "$ref": "#/parameters/rowFilter.platform_category_scores.score" },
+          { "$ref": "#/parameters/rowFilter.platform_category_scores.grade" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["platform_category_scores"]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.platform_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.category_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.score_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores.num_markets"
+          },
+          { "$ref": "#/parameters/rowFilter.platform_category_scores.score" },
+          { "$ref": "#/parameters/rowFilter.platform_category_scores.grade" },
+          { "$ref": "#/parameters/body.platform_category_scores" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["platform_category_scores"]
+      }
+    },
+    "/market_scores_details": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_scores_details.score_type" },
+          { "$ref": "#/parameters/rowFilter.market_scores_details.market_id" },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.market_title"
+          },
+          { "$ref": "#/parameters/rowFilter.market_scores_details.market_url" },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.platform_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.platform_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.category_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.question_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.open_datetime"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.close_datetime"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.traders_count"
+          },
+          { "$ref": "#/parameters/rowFilter.market_scores_details.volume_usd" },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.duration_days"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.market_scores_details.question_invert"
+          },
+          { "$ref": "#/parameters/rowFilter.market_scores_details.resolution" },
+          { "$ref": "#/parameters/rowFilter.market_scores_details.score" },
+          { "$ref": "#/parameters/rowFilter.market_scores_details.grade" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/market_scores_details" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["market_scores_details"]
+      }
+    },
+    "/daily_probability_details": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.daily_probability_details.market_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.daily_probability_details.market_title"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.daily_probability_details.platform_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.daily_probability_details.platform_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.daily_probability_details.question_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.daily_probability_details.question_invert"
+          },
+          { "$ref": "#/parameters/rowFilter.daily_probability_details.date" },
+          { "$ref": "#/parameters/rowFilter.daily_probability_details.prob" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/daily_probability_details" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["daily_probability_details"]
+      }
+    },
+    "/questions": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.questions.id" },
+          { "$ref": "#/parameters/rowFilter.questions.title" },
+          { "$ref": "#/parameters/rowFilter.questions.slug" },
+          { "$ref": "#/parameters/rowFilter.questions.description" },
+          { "$ref": "#/parameters/rowFilter.questions.category_slug" },
+          { "$ref": "#/parameters/rowFilter.questions.start_date_override" },
+          { "$ref": "#/parameters/rowFilter.questions.end_date_override" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/questions" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["questions"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.questions" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["questions"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.questions.id" },
+          { "$ref": "#/parameters/rowFilter.questions.title" },
+          { "$ref": "#/parameters/rowFilter.questions.slug" },
+          { "$ref": "#/parameters/rowFilter.questions.description" },
+          { "$ref": "#/parameters/rowFilter.questions.category_slug" },
+          { "$ref": "#/parameters/rowFilter.questions.start_date_override" },
+          { "$ref": "#/parameters/rowFilter.questions.end_date_override" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["questions"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.questions.id" },
+          { "$ref": "#/parameters/rowFilter.questions.title" },
+          { "$ref": "#/parameters/rowFilter.questions.slug" },
+          { "$ref": "#/parameters/rowFilter.questions.description" },
+          { "$ref": "#/parameters/rowFilter.questions.category_slug" },
+          { "$ref": "#/parameters/rowFilter.questions.start_date_override" },
+          { "$ref": "#/parameters/rowFilter.questions.end_date_override" },
+          { "$ref": "#/parameters/body.questions" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["questions"]
+      }
+    },
+    "/category_details": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.category_details.slug" },
+          { "$ref": "#/parameters/rowFilter.category_details.name" },
+          { "$ref": "#/parameters/rowFilter.category_details.description" },
+          { "$ref": "#/parameters/rowFilter.category_details.icon" },
+          { "$ref": "#/parameters/rowFilter.category_details.total_markets" },
+          { "$ref": "#/parameters/rowFilter.category_details.total_traders" },
+          { "$ref": "#/parameters/rowFilter.category_details.total_volume" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/category_details" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["category_details"]
+      }
+    },
+    "/platform_category_scores_details": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.platform_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.platform_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.category_slug"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.category_name"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.score_type"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.num_markets"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.score"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.platform_category_scores_details.grade"
+          },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/platform_category_scores_details"
+              },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["platform_category_scores_details"]
+      }
+    },
+    "/market_dismissals": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_dismissals.market_id" },
+          {
+            "$ref": "#/parameters/rowFilter.market_dismissals.dismissed_status"
+          },
+          { "$ref": "#/parameters/rowFilter.market_dismissals.last_updated" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/market_dismissals" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["market_dismissals"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.market_dismissals" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["market_dismissals"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_dismissals.market_id" },
+          {
+            "$ref": "#/parameters/rowFilter.market_dismissals.dismissed_status"
+          },
+          { "$ref": "#/parameters/rowFilter.market_dismissals.last_updated" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_dismissals"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_dismissals.market_id" },
+          {
+            "$ref": "#/parameters/rowFilter.market_dismissals.dismissed_status"
+          },
+          { "$ref": "#/parameters/rowFilter.market_dismissals.last_updated" },
+          { "$ref": "#/parameters/body.market_dismissals" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_dismissals"]
+      }
+    },
+    "/question_embeddings": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.question_embeddings.question_id" },
+          { "$ref": "#/parameters/rowFilter.question_embeddings.embedding" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/question_embeddings" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["question_embeddings"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.question_embeddings" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["question_embeddings"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.question_embeddings.question_id" },
+          { "$ref": "#/parameters/rowFilter.question_embeddings.embedding" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["question_embeddings"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.question_embeddings.question_id" },
+          { "$ref": "#/parameters/rowFilter.question_embeddings.embedding" },
+          { "$ref": "#/parameters/body.question_embeddings" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["question_embeddings"]
+      }
+    },
+    "/market_embeddings": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_embeddings.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_embeddings.embedding" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/market_embeddings" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["market_embeddings"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.market_embeddings" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["market_embeddings"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_embeddings.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_embeddings.embedding" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_embeddings"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_embeddings.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_embeddings.embedding" },
+          { "$ref": "#/parameters/body.market_embeddings" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_embeddings"]
+      }
+    },
+    "/general_feedback": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.general_feedback.email" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.feedback_type" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.feedback" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.date" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/general_feedback" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["general_feedback"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.general_feedback" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["general_feedback"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.general_feedback.email" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.feedback_type" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.feedback" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.date" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["general_feedback"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.general_feedback.email" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.feedback_type" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.feedback" },
+          { "$ref": "#/parameters/rowFilter.general_feedback.date" },
+          { "$ref": "#/parameters/body.general_feedback" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["general_feedback"]
+      }
+    },
+    "/platforms": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.platforms.slug" },
+          { "$ref": "#/parameters/rowFilter.platforms.name" },
+          { "$ref": "#/parameters/rowFilter.platforms.description" },
+          { "$ref": "#/parameters/rowFilter.platforms.long_description" },
+          { "$ref": "#/parameters/rowFilter.platforms.icon_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.site_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.wikipedia_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.color_primary" },
+          { "$ref": "#/parameters/rowFilter.platforms.color_accent" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/platforms" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["platforms"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.platforms" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["platforms"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.platforms.slug" },
+          { "$ref": "#/parameters/rowFilter.platforms.name" },
+          { "$ref": "#/parameters/rowFilter.platforms.description" },
+          { "$ref": "#/parameters/rowFilter.platforms.long_description" },
+          { "$ref": "#/parameters/rowFilter.platforms.icon_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.site_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.wikipedia_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.color_primary" },
+          { "$ref": "#/parameters/rowFilter.platforms.color_accent" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["platforms"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.platforms.slug" },
+          { "$ref": "#/parameters/rowFilter.platforms.name" },
+          { "$ref": "#/parameters/rowFilter.platforms.description" },
+          { "$ref": "#/parameters/rowFilter.platforms.long_description" },
+          { "$ref": "#/parameters/rowFilter.platforms.icon_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.site_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.wikipedia_url" },
+          { "$ref": "#/parameters/rowFilter.platforms.color_primary" },
+          { "$ref": "#/parameters/rowFilter.platforms.color_accent" },
+          { "$ref": "#/parameters/body.platforms" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["platforms"]
+      }
+    },
+    "/criterion_probabilities": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.criterion_probabilities.market_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.criterion_probabilities.criterion_type"
+          },
+          { "$ref": "#/parameters/rowFilter.criterion_probabilities.prob" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/criterion_probabilities" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["criterion_probabilities"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.criterion_probabilities" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["criterion_probabilities"]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.criterion_probabilities.market_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.criterion_probabilities.criterion_type"
+          },
+          { "$ref": "#/parameters/rowFilter.criterion_probabilities.prob" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["criterion_probabilities"]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/rowFilter.criterion_probabilities.market_id"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.criterion_probabilities.criterion_type"
+          },
+          { "$ref": "#/parameters/rowFilter.criterion_probabilities.prob" },
+          { "$ref": "#/parameters/body.criterion_probabilities" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["criterion_probabilities"]
+      }
+    },
+    "/markets": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.markets.id" },
+          { "$ref": "#/parameters/rowFilter.markets.title" },
+          { "$ref": "#/parameters/rowFilter.markets.url" },
+          { "$ref": "#/parameters/rowFilter.markets.description" },
+          { "$ref": "#/parameters/rowFilter.markets.platform_slug" },
+          { "$ref": "#/parameters/rowFilter.markets.category_slug" },
+          { "$ref": "#/parameters/rowFilter.markets.open_datetime" },
+          { "$ref": "#/parameters/rowFilter.markets.close_datetime" },
+          { "$ref": "#/parameters/rowFilter.markets.traders_count" },
+          { "$ref": "#/parameters/rowFilter.markets.volume_usd" },
+          { "$ref": "#/parameters/rowFilter.markets.duration_days" },
+          { "$ref": "#/parameters/rowFilter.markets.resolution" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/markets" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["markets"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.markets" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["markets"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.markets.id" },
+          { "$ref": "#/parameters/rowFilter.markets.title" },
+          { "$ref": "#/parameters/rowFilter.markets.url" },
+          { "$ref": "#/parameters/rowFilter.markets.description" },
+          { "$ref": "#/parameters/rowFilter.markets.platform_slug" },
+          { "$ref": "#/parameters/rowFilter.markets.category_slug" },
+          { "$ref": "#/parameters/rowFilter.markets.open_datetime" },
+          { "$ref": "#/parameters/rowFilter.markets.close_datetime" },
+          { "$ref": "#/parameters/rowFilter.markets.traders_count" },
+          { "$ref": "#/parameters/rowFilter.markets.volume_usd" },
+          { "$ref": "#/parameters/rowFilter.markets.duration_days" },
+          { "$ref": "#/parameters/rowFilter.markets.resolution" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["markets"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.markets.id" },
+          { "$ref": "#/parameters/rowFilter.markets.title" },
+          { "$ref": "#/parameters/rowFilter.markets.url" },
+          { "$ref": "#/parameters/rowFilter.markets.description" },
+          { "$ref": "#/parameters/rowFilter.markets.platform_slug" },
+          { "$ref": "#/parameters/rowFilter.markets.category_slug" },
+          { "$ref": "#/parameters/rowFilter.markets.open_datetime" },
+          { "$ref": "#/parameters/rowFilter.markets.close_datetime" },
+          { "$ref": "#/parameters/rowFilter.markets.traders_count" },
+          { "$ref": "#/parameters/rowFilter.markets.volume_usd" },
+          { "$ref": "#/parameters/rowFilter.markets.duration_days" },
+          { "$ref": "#/parameters/rowFilter.markets.resolution" },
+          { "$ref": "#/parameters/body.markets" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["markets"]
+      }
+    },
+    "/question_details": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.question_details.id" },
+          { "$ref": "#/parameters/rowFilter.question_details.title" },
+          { "$ref": "#/parameters/rowFilter.question_details.slug" },
+          { "$ref": "#/parameters/rowFilter.question_details.description" },
+          { "$ref": "#/parameters/rowFilter.question_details.category_slug" },
+          {
+            "$ref": "#/parameters/rowFilter.question_details.start_date_override"
+          },
+          {
+            "$ref": "#/parameters/rowFilter.question_details.end_date_override"
+          },
+          { "$ref": "#/parameters/rowFilter.question_details.category_name" },
+          { "$ref": "#/parameters/rowFilter.question_details.market_count" },
+          { "$ref": "#/parameters/rowFilter.question_details.total_traders" },
+          { "$ref": "#/parameters/rowFilter.question_details.total_volume" },
+          {
+            "$ref": "#/parameters/rowFilter.question_details.start_date_actual"
+          },
+          { "$ref": "#/parameters/rowFilter.question_details.end_date_actual" },
+          { "$ref": "#/parameters/rowFilter.question_details.total_duration" },
+          { "$ref": "#/parameters/rowFilter.question_details.hotness_score" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/question_details" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["question_details"]
+      }
+    },
+    "/other_scores": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.other_scores.item_type" },
+          { "$ref": "#/parameters/rowFilter.other_scores.item_id" },
+          { "$ref": "#/parameters/rowFilter.other_scores.score_type" },
+          { "$ref": "#/parameters/rowFilter.other_scores.num_markets" },
+          { "$ref": "#/parameters/rowFilter.other_scores.score" },
+          { "$ref": "#/parameters/rowFilter.other_scores.grade" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/other_scores" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["other_scores"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.other_scores" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["other_scores"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.other_scores.item_type" },
+          { "$ref": "#/parameters/rowFilter.other_scores.item_id" },
+          { "$ref": "#/parameters/rowFilter.other_scores.score_type" },
+          { "$ref": "#/parameters/rowFilter.other_scores.num_markets" },
+          { "$ref": "#/parameters/rowFilter.other_scores.score" },
+          { "$ref": "#/parameters/rowFilter.other_scores.grade" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["other_scores"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.other_scores.item_type" },
+          { "$ref": "#/parameters/rowFilter.other_scores.item_id" },
+          { "$ref": "#/parameters/rowFilter.other_scores.score_type" },
+          { "$ref": "#/parameters/rowFilter.other_scores.num_markets" },
+          { "$ref": "#/parameters/rowFilter.other_scores.score" },
+          { "$ref": "#/parameters/rowFilter.other_scores.grade" },
+          { "$ref": "#/parameters/body.other_scores" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["other_scores"]
+      }
+    },
+    "/market_scores": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_scores.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_scores.score_type" },
+          { "$ref": "#/parameters/rowFilter.market_scores.score" },
+          { "$ref": "#/parameters/rowFilter.market_scores.grade" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/market_scores" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["market_scores"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.market_scores" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["market_scores"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_scores.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_scores.score_type" },
+          { "$ref": "#/parameters/rowFilter.market_scores.score" },
+          { "$ref": "#/parameters/rowFilter.market_scores.grade" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_scores"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_scores.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_scores.score_type" },
+          { "$ref": "#/parameters/rowFilter.market_scores.score" },
+          { "$ref": "#/parameters/rowFilter.market_scores.grade" },
+          { "$ref": "#/parameters/body.market_scores" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_scores"]
+      }
+    },
+    "/market_details": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_details.id" },
+          { "$ref": "#/parameters/rowFilter.market_details.title" },
+          { "$ref": "#/parameters/rowFilter.market_details.url" },
+          { "$ref": "#/parameters/rowFilter.market_details.description" },
+          { "$ref": "#/parameters/rowFilter.market_details.platform_slug" },
+          { "$ref": "#/parameters/rowFilter.market_details.platform_name" },
+          { "$ref": "#/parameters/rowFilter.market_details.category_slug" },
+          { "$ref": "#/parameters/rowFilter.market_details.category_name" },
+          { "$ref": "#/parameters/rowFilter.market_details.question_id" },
+          { "$ref": "#/parameters/rowFilter.market_details.question_slug" },
+          { "$ref": "#/parameters/rowFilter.market_details.question_title" },
+          { "$ref": "#/parameters/rowFilter.market_details.question_invert" },
+          {
+            "$ref": "#/parameters/rowFilter.market_details.question_dismissed"
+          },
+          { "$ref": "#/parameters/rowFilter.market_details.open_datetime" },
+          { "$ref": "#/parameters/rowFilter.market_details.close_datetime" },
+          { "$ref": "#/parameters/rowFilter.market_details.traders_count" },
+          { "$ref": "#/parameters/rowFilter.market_details.volume_usd" },
+          { "$ref": "#/parameters/rowFilter.market_details.duration_days" },
+          { "$ref": "#/parameters/rowFilter.market_details.resolution" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/market_details" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["market_details"]
+      }
+    },
+    "/market_questions": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_questions.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_questions.question_id" },
+          { "$ref": "#/parameters/rowFilter.market_questions.question_invert" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/market_questions" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["market_questions"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.market_questions" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["market_questions"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_questions.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_questions.question_id" },
+          { "$ref": "#/parameters/rowFilter.market_questions.question_invert" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_questions"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.market_questions.market_id" },
+          { "$ref": "#/parameters/rowFilter.market_questions.question_id" },
+          { "$ref": "#/parameters/rowFilter.market_questions.question_invert" },
+          { "$ref": "#/parameters/body.market_questions" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["market_questions"]
+      }
+    },
+    "/platform_details": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.platform_details.slug" },
+          { "$ref": "#/parameters/rowFilter.platform_details.name" },
+          { "$ref": "#/parameters/rowFilter.platform_details.description" },
+          {
+            "$ref": "#/parameters/rowFilter.platform_details.long_description"
+          },
+          { "$ref": "#/parameters/rowFilter.platform_details.icon_url" },
+          { "$ref": "#/parameters/rowFilter.platform_details.site_url" },
+          { "$ref": "#/parameters/rowFilter.platform_details.wikipedia_url" },
+          { "$ref": "#/parameters/rowFilter.platform_details.color_primary" },
+          { "$ref": "#/parameters/rowFilter.platform_details.color_accent" },
+          { "$ref": "#/parameters/rowFilter.platform_details.total_markets" },
+          { "$ref": "#/parameters/rowFilter.platform_details.total_traders" },
+          { "$ref": "#/parameters/rowFilter.platform_details.total_volume" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/platform_details" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["platform_details"]
+      }
+    },
+    "/daily_probabilities": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.market_id" },
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.date" },
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.prob" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/daily_probabilities" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["daily_probabilities"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.daily_probabilities" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["daily_probabilities"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.market_id" },
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.date" },
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.prob" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["daily_probabilities"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.market_id" },
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.date" },
+          { "$ref": "#/parameters/rowFilter.daily_probabilities.prob" },
+          { "$ref": "#/parameters/body.daily_probabilities" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["daily_probabilities"]
+      }
+    },
+    "/categories": {
+      "get": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.categories.slug" },
+          { "$ref": "#/parameters/rowFilter.categories.name" },
+          { "$ref": "#/parameters/rowFilter.categories.description" },
+          { "$ref": "#/parameters/rowFilter.categories.icon" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/order" },
+          { "$ref": "#/parameters/range" },
+          { "$ref": "#/parameters/rangeUnit" },
+          { "$ref": "#/parameters/offset" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/preferCount" }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": { "$ref": "#/definitions/categories" },
+              "type": "array"
+            }
+          },
+          "206": { "description": "Partial Content" }
+        },
+        "tags": ["categories"]
+      },
+      "post": {
+        "parameters": [
+          { "$ref": "#/parameters/body.categories" },
+          { "$ref": "#/parameters/select" },
+          { "$ref": "#/parameters/preferPost" }
+        ],
+        "responses": { "201": { "description": "Created" } },
+        "tags": ["categories"]
+      },
+      "delete": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.categories.slug" },
+          { "$ref": "#/parameters/rowFilter.categories.name" },
+          { "$ref": "#/parameters/rowFilter.categories.description" },
+          { "$ref": "#/parameters/rowFilter.categories.icon" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["categories"]
+      },
+      "patch": {
+        "parameters": [
+          { "$ref": "#/parameters/rowFilter.categories.slug" },
+          { "$ref": "#/parameters/rowFilter.categories.name" },
+          { "$ref": "#/parameters/rowFilter.categories.description" },
+          { "$ref": "#/parameters/rowFilter.categories.icon" },
+          { "$ref": "#/parameters/body.categories" },
+          { "$ref": "#/parameters/preferReturn" }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "tags": ["categories"]
+      }
+    },
+    "/rpc/find_similar_questions_by_id": {
+      "get": {
+        "parameters": [
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "target_question_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "format": "double precision",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "limit_count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_questions_by_id"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "limit_count": { "format": "integer", "type": "integer" },
+                "target_question_id": {
+                  "format": "integer",
+                  "type": "integer"
+                },
+                "threshold": { "format": "double precision", "type": "number" }
+              },
+              "required": ["target_question_id"],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_questions_by_id"]
+      }
+    },
+    "/rpc/find_markets_missing_embeddings": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_markets_missing_embeddings"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": { "type": "object" }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_markets_missing_embeddings"]
+      }
+    },
+    "/rpc/find_similar_markets": {
+      "get": {
+        "parameters": [
+          {
+            "format": "vector",
+            "in": "query",
+            "name": "input_embedding",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "double precision",
+            "in": "query",
+            "name": "threshold",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "limit_count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_markets"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "input_embedding": { "format": "vector", "type": "string" },
+                "limit_count": { "format": "integer", "type": "integer" },
+                "threshold": { "format": "double precision", "type": "number" }
+              },
+              "required": ["input_embedding", "threshold"],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_markets"]
+      }
+    },
+    "/rpc/find_similar_question": {
+      "get": {
+        "parameters": [
+          {
+            "format": "vector",
+            "in": "query",
+            "name": "input_embedding",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "double precision",
+            "in": "query",
+            "name": "threshold",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "limit_count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_question"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "input_embedding": { "format": "vector", "type": "string" },
+                "limit_count": { "format": "integer", "type": "integer" },
+                "threshold": { "format": "double precision", "type": "number" }
+              },
+              "required": ["input_embedding", "threshold"],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_question"]
+      }
+    },
+    "/rpc/calculate_hotness_score": {
+      "get": {
+        "parameters": [
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "market_count",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "total_traders",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "format": "numeric",
+            "in": "query",
+            "name": "total_volume",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "format": "date",
+            "in": "query",
+            "name": "start_date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date",
+            "in": "query",
+            "name": "end_date",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "numeric",
+            "in": "query",
+            "name": "weight_market_count",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "numeric",
+            "in": "query",
+            "name": "weight_traders",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "numeric",
+            "in": "query",
+            "name": "weight_volume",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "numeric",
+            "in": "query",
+            "name": "weight_duration",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "numeric",
+            "in": "query",
+            "name": "weight_age",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) calculate_hotness_score"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "end_date": { "format": "date", "type": "string" },
+                "market_count": { "format": "integer", "type": "integer" },
+                "start_date": { "format": "date", "type": "string" },
+                "total_traders": { "format": "integer", "type": "integer" },
+                "total_volume": { "format": "numeric", "type": "number" },
+                "weight_age": { "format": "numeric", "type": "number" },
+                "weight_duration": { "format": "numeric", "type": "number" },
+                "weight_market_count": {
+                  "format": "numeric",
+                  "type": "number"
+                },
+                "weight_traders": { "format": "numeric", "type": "number" },
+                "weight_volume": { "format": "numeric", "type": "number" }
+              },
+              "required": [
+                "market_count",
+                "total_traders",
+                "total_volume",
+                "start_date",
+                "end_date"
+              ],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) calculate_hotness_score"]
+      }
+    },
+    "/rpc/vector_similarity": {
+      "get": {
+        "parameters": [
+          {
+            "format": "vector",
+            "in": "query",
+            "name": "vector1",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "vector",
+            "in": "query",
+            "name": "vector2",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) vector_similarity"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "vector1": { "format": "vector", "type": "string" },
+                "vector2": { "format": "vector", "type": "string" }
+              },
+              "required": ["vector1", "vector2"],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) vector_similarity"]
+      }
+    },
+    "/rpc/find_similar_markets_by_id": {
+      "get": {
+        "parameters": [
+          {
+            "format": "text",
+            "in": "query",
+            "name": "target_market_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "double precision",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "limit_count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_markets_by_id"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "limit_count": { "format": "integer", "type": "integer" },
+                "target_market_id": { "format": "text", "type": "string" },
+                "threshold": { "format": "double precision", "type": "number" }
+              },
+              "required": ["target_market_id"],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_markets_by_id"]
+      }
+    },
+    "/rpc/find_similar_questions": {
+      "get": {
+        "parameters": [
+          {
+            "format": "vector",
+            "in": "query",
+            "name": "input_embedding",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "double precision",
+            "in": "query",
+            "name": "threshold",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "limit_count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_questions"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "input_embedding": { "format": "vector", "type": "string" },
+                "limit_count": { "format": "integer", "type": "integer" },
+                "threshold": { "format": "double precision", "type": "number" }
+              },
+              "required": ["input_embedding", "threshold"],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_questions"]
+      }
+    },
+    "/rpc/find_questions_missing_embeddings": {
+      "get": {
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_questions_missing_embeddings"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": { "type": "object" }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_questions_missing_embeddings"]
+      }
+    },
+    "/rpc/find_similar_market": {
+      "get": {
+        "parameters": [
+          {
+            "format": "vector",
+            "in": "query",
+            "name": "input_embedding",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "double precision",
+            "in": "query",
+            "name": "threshold",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "format": "integer",
+            "in": "query",
+            "name": "limit_count",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_market"]
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "args",
+            "required": true,
+            "schema": {
+              "properties": {
+                "input_embedding": { "format": "vector", "type": "string" },
+                "limit_count": { "format": "integer", "type": "integer" },
+                "threshold": { "format": "double precision", "type": "number" }
+              },
+              "required": ["input_embedding", "threshold"],
+              "type": "object"
+            }
+          },
+          { "$ref": "#/parameters/preferParams" }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.pgrst.object+json;nulls=stripped",
+          "application/vnd.pgrst.object+json"
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["(rpc) find_similar_market"]
+      }
+    }
+  },
+  "definitions": {
+    "newsletter_signups": {
+      "required": ["email", "date"],
+      "properties": {
+        "email": { "format": "text", "type": "string" },
+        "date": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "platform_category_scores": {
+      "required": [
+        "platform_slug",
+        "category_slug",
+        "score_type",
+        "num_markets"
+      ],
+      "properties": {
+        "platform_slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `platforms.slug`.<fk table='platforms' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "category_slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `categories.slug`.<fk table='categories' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "score_type": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "num_markets": { "format": "integer", "type": "integer" },
+        "score": { "format": "numeric", "type": "number" },
+        "grade": { "format": "text", "type": "string" }
+      },
+      "type": "object"
+    },
+    "market_scores_details": {
+      "properties": {
+        "score_type": { "format": "text", "type": "string" },
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "market_title": { "format": "text", "type": "string" },
+        "market_url": { "format": "text", "type": "string" },
+        "platform_slug": {
+          "description": "Note:\nThis is a Foreign Key to `platforms.slug`.<fk table='platforms' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "platform_name": { "format": "text", "type": "string" },
+        "category_slug": {
+          "description": "Note:\nThis is a Foreign Key to `categories.slug`.<fk table='categories' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "question_id": {
+          "description": "Note:\nThis is a Foreign Key to `questions.id`.<fk table='questions' column='id'/>",
+          "format": "integer",
+          "type": "integer"
+        },
+        "open_datetime": {
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "close_datetime": {
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "traders_count": { "format": "integer", "type": "integer" },
+        "volume_usd": { "format": "numeric", "type": "number" },
+        "duration_days": { "format": "integer", "type": "integer" },
+        "question_invert": { "format": "boolean", "type": "boolean" },
+        "resolution": { "format": "numeric", "type": "number" },
+        "score": { "format": "numeric", "type": "number" },
+        "grade": { "format": "text", "type": "string" }
+      },
+      "type": "object"
+    },
+    "daily_probability_details": {
+      "properties": {
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "market_title": { "format": "text", "type": "string" },
+        "platform_slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "platform_name": { "format": "text", "type": "string" },
+        "question_id": {
+          "description": "Note:\nThis is a Foreign Key to `questions.id`.<fk table='questions' column='id'/>",
+          "format": "integer",
+          "type": "integer"
+        },
+        "question_invert": { "format": "boolean", "type": "boolean" },
+        "date": { "format": "timestamp with time zone", "type": "string" },
+        "prob": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "questions": {
+      "required": ["id", "title", "slug", "category_slug"],
+      "properties": {
+        "id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "integer",
+          "type": "integer"
+        },
+        "title": { "format": "text", "type": "string" },
+        "slug": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "category_slug": {
+          "description": "Note:\nThis is a Foreign Key to `categories.slug`.<fk table='categories' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "start_date_override": { "format": "date", "type": "string" },
+        "end_date_override": { "format": "date", "type": "string" }
+      },
+      "type": "object"
+    },
+    "category_details": {
+      "properties": {
+        "slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "name": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "icon": { "format": "text", "type": "string" },
+        "total_markets": { "format": "bigint", "type": "integer" },
+        "total_traders": { "format": "bigint", "type": "integer" },
+        "total_volume": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "platform_category_scores_details": {
+      "properties": {
+        "platform_slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `platforms.slug`.<fk table='platforms' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "platform_name": { "format": "text", "type": "string" },
+        "category_slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `categories.slug`.<fk table='categories' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "category_name": { "format": "text", "type": "string" },
+        "score_type": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "num_markets": { "format": "integer", "type": "integer" },
+        "score": { "format": "numeric", "type": "number" },
+        "grade": { "format": "text", "type": "string" }
+      },
+      "type": "object"
+    },
+    "market_dismissals": {
+      "required": ["market_id", "dismissed_status", "last_updated"],
+      "properties": {
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `markets.id`.<fk table='markets' column='id'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "dismissed_status": { "format": "integer", "type": "integer" },
+        "last_updated": {
+          "default": "CURRENT_TIMESTAMP",
+          "format": "timestamp with time zone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "question_embeddings": {
+      "required": ["question_id"],
+      "properties": {
+        "question_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `questions.id`.<fk table='questions' column='id'/>",
+          "format": "integer",
+          "type": "integer"
+        },
+        "embedding": { "format": "public.vector(768)", "type": "string" }
+      },
+      "type": "object"
+    },
+    "market_embeddings": {
+      "required": ["market_id"],
+      "properties": {
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `markets.id`.<fk table='markets' column='id'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "embedding": { "format": "public.vector(768)", "type": "string" }
+      },
+      "type": "object"
+    },
+    "general_feedback": {
+      "required": ["email", "feedback_type", "feedback", "date"],
+      "properties": {
+        "email": { "format": "text", "type": "string" },
+        "feedback_type": { "format": "text", "type": "string" },
+        "feedback": { "format": "text", "type": "string" },
+        "date": {
+          "default": "now()",
+          "format": "timestamp with time zone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "platforms": {
+      "required": ["slug", "name"],
+      "properties": {
+        "slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "name": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "long_description": { "format": "text", "type": "string" },
+        "icon_url": { "format": "text", "type": "string" },
+        "site_url": { "format": "text", "type": "string" },
+        "wikipedia_url": { "format": "text", "type": "string" },
+        "color_primary": { "format": "text", "type": "string" },
+        "color_accent": { "format": "text", "type": "string" }
+      },
+      "type": "object"
+    },
+    "criterion_probabilities": {
+      "required": ["market_id", "criterion_type", "prob"],
+      "properties": {
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `markets.id`.<fk table='markets' column='id'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "criterion_type": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "prob": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "markets": {
+      "required": [
+        "id",
+        "title",
+        "url",
+        "platform_slug",
+        "open_datetime",
+        "close_datetime",
+        "duration_days",
+        "resolution"
+      ],
+      "properties": {
+        "id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "title": { "format": "text", "type": "string" },
+        "url": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "platform_slug": {
+          "description": "Note:\nThis is a Foreign Key to `platforms.slug`.<fk table='platforms' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "category_slug": {
+          "description": "Note:\nThis is a Foreign Key to `categories.slug`.<fk table='categories' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "open_datetime": {
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "close_datetime": {
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "traders_count": { "format": "integer", "type": "integer" },
+        "volume_usd": { "format": "numeric", "type": "number" },
+        "duration_days": { "format": "integer", "type": "integer" },
+        "resolution": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "question_details": {
+      "properties": {
+        "id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "integer",
+          "type": "integer"
+        },
+        "title": { "format": "text", "type": "string" },
+        "slug": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "category_slug": {
+          "description": "Note:\nThis is a Foreign Key to `categories.slug`.<fk table='categories' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "start_date_override": { "format": "date", "type": "string" },
+        "end_date_override": { "format": "date", "type": "string" },
+        "category_name": { "format": "text", "type": "string" },
+        "market_count": { "format": "bigint", "type": "integer" },
+        "total_traders": { "format": "bigint", "type": "integer" },
+        "total_volume": { "format": "numeric", "type": "number" },
+        "start_date_actual": { "format": "date", "type": "string" },
+        "end_date_actual": { "format": "date", "type": "string" },
+        "total_duration": { "format": "integer", "type": "integer" },
+        "hotness_score": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "other_scores": {
+      "required": ["item_type", "item_id", "score_type", "num_markets"],
+      "properties": {
+        "item_type": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "item_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "score_type": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "num_markets": { "format": "integer", "type": "integer" },
+        "score": { "format": "numeric", "type": "number" },
+        "grade": { "format": "text", "type": "string" }
+      },
+      "type": "object"
+    },
+    "market_scores": {
+      "required": ["market_id", "score_type", "score", "grade"],
+      "properties": {
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `markets.id`.<fk table='markets' column='id'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "score_type": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "score": { "format": "numeric", "type": "number" },
+        "grade": { "format": "text", "type": "string" }
+      },
+      "type": "object"
+    },
+    "market_details": {
+      "properties": {
+        "id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "title": { "format": "text", "type": "string" },
+        "url": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "platform_slug": {
+          "description": "Note:\nThis is a Foreign Key to `platforms.slug`.<fk table='platforms' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "platform_name": { "format": "text", "type": "string" },
+        "category_slug": {
+          "description": "Note:\nThis is a Foreign Key to `categories.slug`.<fk table='categories' column='slug'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "category_name": { "format": "text", "type": "string" },
+        "question_id": {
+          "description": "Note:\nThis is a Foreign Key to `questions.id`.<fk table='questions' column='id'/>",
+          "format": "integer",
+          "type": "integer"
+        },
+        "question_slug": { "format": "text", "type": "string" },
+        "question_title": { "format": "text", "type": "string" },
+        "question_invert": { "format": "boolean", "type": "boolean" },
+        "question_dismissed": { "format": "integer", "type": "integer" },
+        "open_datetime": {
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "close_datetime": {
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "traders_count": { "format": "integer", "type": "integer" },
+        "volume_usd": { "format": "numeric", "type": "number" },
+        "duration_days": { "format": "integer", "type": "integer" },
+        "resolution": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "market_questions": {
+      "required": ["market_id", "question_id", "question_invert"],
+      "properties": {
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `markets.id`.<fk table='markets' column='id'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "question_id": {
+          "description": "Note:\nThis is a Foreign Key to `questions.id`.<fk table='questions' column='id'/>",
+          "format": "integer",
+          "type": "integer"
+        },
+        "question_invert": {
+          "default": false,
+          "format": "boolean",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "platform_details": {
+      "properties": {
+        "slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "name": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "long_description": { "format": "text", "type": "string" },
+        "icon_url": { "format": "text", "type": "string" },
+        "site_url": { "format": "text", "type": "string" },
+        "wikipedia_url": { "format": "text", "type": "string" },
+        "color_primary": { "format": "text", "type": "string" },
+        "color_accent": { "format": "text", "type": "string" },
+        "total_markets": { "format": "bigint", "type": "integer" },
+        "total_traders": { "format": "bigint", "type": "integer" },
+        "total_volume": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "daily_probabilities": {
+      "required": ["market_id", "date", "prob"],
+      "properties": {
+        "market_id": {
+          "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `markets.id`.<fk table='markets' column='id'/>",
+          "format": "text",
+          "type": "string"
+        },
+        "date": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "timestamp with time zone",
+          "type": "string"
+        },
+        "prob": { "format": "numeric", "type": "number" }
+      },
+      "type": "object"
+    },
+    "categories": {
+      "required": ["slug", "name"],
+      "properties": {
+        "slug": {
+          "description": "Note:\nThis is a Primary Key.<pk/>",
+          "format": "text",
+          "type": "string"
+        },
+        "name": { "format": "text", "type": "string" },
+        "description": { "format": "text", "type": "string" },
+        "icon": { "format": "text", "type": "string" }
+      },
+      "type": "object"
+    }
+  },
+  "parameters": {
+    "preferParams": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": ["params=single-object"],
+      "in": "header",
+      "type": "string"
+    },
+    "preferReturn": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": ["return=representation", "return=minimal", "return=none"],
+      "in": "header",
+      "type": "string"
+    },
+    "preferCount": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": ["count=none"],
+      "in": "header",
+      "type": "string"
+    },
+    "preferPost": {
+      "name": "Prefer",
+      "description": "Preference",
+      "required": false,
+      "enum": [
+        "return=representation",
+        "return=minimal",
+        "return=none",
+        "resolution=ignore-duplicates",
+        "resolution=merge-duplicates"
+      ],
+      "in": "header",
+      "type": "string"
+    },
+    "select": {
+      "name": "select",
+      "description": "Filtering Columns",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "on_conflict": {
+      "name": "on_conflict",
+      "description": "On Conflict",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "order": {
+      "name": "order",
+      "description": "Ordering",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "range": {
+      "name": "Range",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "header",
+      "type": "string"
+    },
+    "rangeUnit": {
+      "name": "Range-Unit",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "default": "items",
+      "in": "header",
+      "type": "string"
+    },
+    "offset": {
+      "name": "offset",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "limit": {
+      "name": "limit",
+      "description": "Limiting and Pagination",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.newsletter_signups": {
+      "name": "newsletter_signups",
+      "description": "newsletter_signups",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/newsletter_signups" }
+    },
+    "rowFilter.newsletter_signups.email": {
+      "name": "email",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.newsletter_signups.date": {
+      "name": "date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.platform_category_scores": {
+      "name": "platform_category_scores",
+      "description": "platform_category_scores",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/platform_category_scores" }
+    },
+    "rowFilter.platform_category_scores.platform_slug": {
+      "name": "platform_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores.category_slug": {
+      "name": "category_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores.score_type": {
+      "name": "score_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores.num_markets": {
+      "name": "num_markets",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores.score": {
+      "name": "score",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores.grade": {
+      "name": "grade",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.market_scores_details": {
+      "name": "market_scores_details",
+      "description": "market_scores_details",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/market_scores_details" }
+    },
+    "rowFilter.market_scores_details.score_type": {
+      "name": "score_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.market_title": {
+      "name": "market_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.market_url": {
+      "name": "market_url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.platform_slug": {
+      "name": "platform_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.platform_name": {
+      "name": "platform_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.category_slug": {
+      "name": "category_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.question_id": {
+      "name": "question_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.open_datetime": {
+      "name": "open_datetime",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.close_datetime": {
+      "name": "close_datetime",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.traders_count": {
+      "name": "traders_count",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.volume_usd": {
+      "name": "volume_usd",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.duration_days": {
+      "name": "duration_days",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.question_invert": {
+      "name": "question_invert",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.resolution": {
+      "name": "resolution",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.score": {
+      "name": "score",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores_details.grade": {
+      "name": "grade",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.daily_probability_details": {
+      "name": "daily_probability_details",
+      "description": "daily_probability_details",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/daily_probability_details" }
+    },
+    "rowFilter.daily_probability_details.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probability_details.market_title": {
+      "name": "market_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probability_details.platform_slug": {
+      "name": "platform_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probability_details.platform_name": {
+      "name": "platform_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probability_details.question_id": {
+      "name": "question_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probability_details.question_invert": {
+      "name": "question_invert",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probability_details.date": {
+      "name": "date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probability_details.prob": {
+      "name": "prob",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.questions": {
+      "name": "questions",
+      "description": "questions",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/questions" }
+    },
+    "rowFilter.questions.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.questions.title": {
+      "name": "title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.questions.slug": {
+      "name": "slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.questions.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.questions.category_slug": {
+      "name": "category_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.questions.start_date_override": {
+      "name": "start_date_override",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.questions.end_date_override": {
+      "name": "end_date_override",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.category_details": {
+      "name": "category_details",
+      "description": "category_details",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/category_details" }
+    },
+    "rowFilter.category_details.slug": {
+      "name": "slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.category_details.name": {
+      "name": "name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.category_details.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.category_details.icon": {
+      "name": "icon",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.category_details.total_markets": {
+      "name": "total_markets",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.category_details.total_traders": {
+      "name": "total_traders",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.category_details.total_volume": {
+      "name": "total_volume",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.platform_category_scores_details": {
+      "name": "platform_category_scores_details",
+      "description": "platform_category_scores_details",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/platform_category_scores_details" }
+    },
+    "rowFilter.platform_category_scores_details.platform_slug": {
+      "name": "platform_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores_details.platform_name": {
+      "name": "platform_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores_details.category_slug": {
+      "name": "category_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores_details.category_name": {
+      "name": "category_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores_details.score_type": {
+      "name": "score_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores_details.num_markets": {
+      "name": "num_markets",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores_details.score": {
+      "name": "score",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_category_scores_details.grade": {
+      "name": "grade",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.market_dismissals": {
+      "name": "market_dismissals",
+      "description": "market_dismissals",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/market_dismissals" }
+    },
+    "rowFilter.market_dismissals.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_dismissals.dismissed_status": {
+      "name": "dismissed_status",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_dismissals.last_updated": {
+      "name": "last_updated",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.question_embeddings": {
+      "name": "question_embeddings",
+      "description": "question_embeddings",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/question_embeddings" }
+    },
+    "rowFilter.question_embeddings.question_id": {
+      "name": "question_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_embeddings.embedding": {
+      "name": "embedding",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.market_embeddings": {
+      "name": "market_embeddings",
+      "description": "market_embeddings",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/market_embeddings" }
+    },
+    "rowFilter.market_embeddings.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_embeddings.embedding": {
+      "name": "embedding",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.general_feedback": {
+      "name": "general_feedback",
+      "description": "general_feedback",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/general_feedback" }
+    },
+    "rowFilter.general_feedback.email": {
+      "name": "email",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general_feedback.feedback_type": {
+      "name": "feedback_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general_feedback.feedback": {
+      "name": "feedback",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.general_feedback.date": {
+      "name": "date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.platforms": {
+      "name": "platforms",
+      "description": "platforms",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/platforms" }
+    },
+    "rowFilter.platforms.slug": {
+      "name": "slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.name": {
+      "name": "name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.long_description": {
+      "name": "long_description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.icon_url": {
+      "name": "icon_url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.site_url": {
+      "name": "site_url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.wikipedia_url": {
+      "name": "wikipedia_url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.color_primary": {
+      "name": "color_primary",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platforms.color_accent": {
+      "name": "color_accent",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.criterion_probabilities": {
+      "name": "criterion_probabilities",
+      "description": "criterion_probabilities",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/criterion_probabilities" }
+    },
+    "rowFilter.criterion_probabilities.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.criterion_probabilities.criterion_type": {
+      "name": "criterion_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.criterion_probabilities.prob": {
+      "name": "prob",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.markets": {
+      "name": "markets",
+      "description": "markets",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/markets" }
+    },
+    "rowFilter.markets.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.title": {
+      "name": "title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.url": {
+      "name": "url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.platform_slug": {
+      "name": "platform_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.category_slug": {
+      "name": "category_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.open_datetime": {
+      "name": "open_datetime",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.close_datetime": {
+      "name": "close_datetime",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.traders_count": {
+      "name": "traders_count",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.volume_usd": {
+      "name": "volume_usd",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.duration_days": {
+      "name": "duration_days",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.markets.resolution": {
+      "name": "resolution",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.question_details": {
+      "name": "question_details",
+      "description": "question_details",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/question_details" }
+    },
+    "rowFilter.question_details.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.title": {
+      "name": "title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.slug": {
+      "name": "slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.category_slug": {
+      "name": "category_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.start_date_override": {
+      "name": "start_date_override",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.end_date_override": {
+      "name": "end_date_override",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.category_name": {
+      "name": "category_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.market_count": {
+      "name": "market_count",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.total_traders": {
+      "name": "total_traders",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.total_volume": {
+      "name": "total_volume",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.start_date_actual": {
+      "name": "start_date_actual",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.end_date_actual": {
+      "name": "end_date_actual",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.total_duration": {
+      "name": "total_duration",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.question_details.hotness_score": {
+      "name": "hotness_score",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.other_scores": {
+      "name": "other_scores",
+      "description": "other_scores",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/other_scores" }
+    },
+    "rowFilter.other_scores.item_type": {
+      "name": "item_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.other_scores.item_id": {
+      "name": "item_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.other_scores.score_type": {
+      "name": "score_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.other_scores.num_markets": {
+      "name": "num_markets",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.other_scores.score": {
+      "name": "score",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.other_scores.grade": {
+      "name": "grade",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.market_scores": {
+      "name": "market_scores",
+      "description": "market_scores",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/market_scores" }
+    },
+    "rowFilter.market_scores.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores.score_type": {
+      "name": "score_type",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores.score": {
+      "name": "score",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_scores.grade": {
+      "name": "grade",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.market_details": {
+      "name": "market_details",
+      "description": "market_details",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/market_details" }
+    },
+    "rowFilter.market_details.id": {
+      "name": "id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.title": {
+      "name": "title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.url": {
+      "name": "url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.platform_slug": {
+      "name": "platform_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.platform_name": {
+      "name": "platform_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.category_slug": {
+      "name": "category_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.category_name": {
+      "name": "category_name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.question_id": {
+      "name": "question_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.question_slug": {
+      "name": "question_slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.question_title": {
+      "name": "question_title",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.question_invert": {
+      "name": "question_invert",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.question_dismissed": {
+      "name": "question_dismissed",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.open_datetime": {
+      "name": "open_datetime",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.close_datetime": {
+      "name": "close_datetime",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.traders_count": {
+      "name": "traders_count",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.volume_usd": {
+      "name": "volume_usd",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.duration_days": {
+      "name": "duration_days",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_details.resolution": {
+      "name": "resolution",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.market_questions": {
+      "name": "market_questions",
+      "description": "market_questions",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/market_questions" }
+    },
+    "rowFilter.market_questions.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_questions.question_id": {
+      "name": "question_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.market_questions.question_invert": {
+      "name": "question_invert",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.platform_details": {
+      "name": "platform_details",
+      "description": "platform_details",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/platform_details" }
+    },
+    "rowFilter.platform_details.slug": {
+      "name": "slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.name": {
+      "name": "name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.long_description": {
+      "name": "long_description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.icon_url": {
+      "name": "icon_url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.site_url": {
+      "name": "site_url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.wikipedia_url": {
+      "name": "wikipedia_url",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.color_primary": {
+      "name": "color_primary",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.color_accent": {
+      "name": "color_accent",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.total_markets": {
+      "name": "total_markets",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.total_traders": {
+      "name": "total_traders",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.platform_details.total_volume": {
+      "name": "total_volume",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.daily_probabilities": {
+      "name": "daily_probabilities",
+      "description": "daily_probabilities",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/daily_probabilities" }
+    },
+    "rowFilter.daily_probabilities.market_id": {
+      "name": "market_id",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probabilities.date": {
+      "name": "date",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.daily_probabilities.prob": {
+      "name": "prob",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "body.categories": {
+      "name": "categories",
+      "description": "categories",
+      "required": false,
+      "in": "body",
+      "schema": { "$ref": "#/definitions/categories" }
+    },
+    "rowFilter.categories.slug": {
+      "name": "slug",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.categories.name": {
+      "name": "name",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.categories.description": {
+      "name": "description",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    },
+    "rowFilter.categories.icon": {
+      "name": "icon",
+      "required": false,
+      "in": "query",
+      "type": "string"
+    }
+  },
+  "externalDocs": {
+    "description": "PostgREST Documentation",
+    "url": "https://postgrest.org/en/v12/references/api.html"
+  }
+}
